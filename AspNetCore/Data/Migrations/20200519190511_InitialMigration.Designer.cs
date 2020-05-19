@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspNetCore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200519141228_InitialMigration")]
+    [Migration("20200519190511_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,19 +23,27 @@ namespace AspNetCore.Data.Migrations
 
             modelBuilder.Entity("AspNetCore.Models.SuperHero", b =>
                 {
-                    b.Property<string>("name")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("alterEgo")
+                    b.Property<string>("AlterEgo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("catchphrase")
+                    b.Property<string>("Catchphrase")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("secondarySuperheroAbility")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("name");
+                    b.Property<string>("PrimarySuperheroAbility")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecondarySuperheroAbility")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("superHeroes");
                 });

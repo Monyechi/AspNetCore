@@ -5,15 +5,21 @@ using System.Threading.Tasks;
 using AspNetCore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using AspNetCore.Data;
 namespace AspNetCore.Controllers
 {
     public class SuperHeroesController : Controller
     {
+        ApplicationDbContext context;
+        public SuperHeroesController(ApplicationDbContext context)
+        {
+            this.context = context;
+        }
         // GET: SuperHeroes
         public ActionResult Index()
         {
-            return View();
+            var superHeroes = context.superHeroes.ToList();
+            return View(superHeroes);
         }
 
         // GET: SuperHeroes/Details/5
@@ -37,7 +43,8 @@ namespace AspNetCore.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                context.superHeroes.Add(superHero);
+                context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -47,7 +54,7 @@ namespace AspNetCore.Controllers
         }
 
         // GET: SuperHeroes/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(SuperHero superHero)
         {
             return View();
         }
@@ -70,20 +77,22 @@ namespace AspNetCore.Controllers
         }
 
         // GET: SuperHeroes/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(SuperHero superHero)
         {
-            return View();
+            context.superHeroes.Remove(superHero);
+            context.SaveChanges();
+            return View(superHero);
         }
 
         // POST: SuperHeroes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete()
         {
             try
             {
                 // TODO: Add delete logic here
-
+                
                 return RedirectToAction(nameof(Index));
             }
             catch

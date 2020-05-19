@@ -14,5 +14,9 @@ namespace AspNetCore.Data
             : base(options)
         {
         }
+
+        public ApplicationDbContext()
+        {
+        }
     }
 }

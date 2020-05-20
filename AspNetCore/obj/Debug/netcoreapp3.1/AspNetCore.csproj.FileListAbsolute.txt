@@ -158,3 +158,6 @@ C:\Users\monye\OneDrive\Desktop\devCodeCamp\Week 7\Projects\AspNetCore\AspNetCor
 C:\Users\monye\OneDrive\Desktop\devCodeCamp\Week 7\Projects\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\AspNetCore.csprojAssemblyReference.cache
 C:\Users\monye\OneDrive\Desktop\devCodeCamp\Week 7\Projects\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\Razor\Views\SuperHeroes\Index.cshtml.g.cs
 C:\Users\monye\OneDrive\Desktop\devCodeCamp\Week 7\Projects\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\Razor\Views\SuperHeroes\Create.cshtml.g.cs
+C:\Users\monye\OneDrive\Desktop\devCodeCamp\Week 7\Projects\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\Razor\Views\SuperHeroes\Edit.cshtml.g.cs
+C:\Users\monye\OneDrive\Desktop\devCodeCamp\Week 7\Projects\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\Razor\Views\SuperHeroes\Details.cshtml.g.cs
+C:\Users\monye\OneDrive\Desktop\devCodeCamp\Week 7\Projects\AspNetCore\AspNetCore\obj\Debug\netcoreapp3.1\Razor\Views\SuperHeroes\Delete.cshtml.g.cs

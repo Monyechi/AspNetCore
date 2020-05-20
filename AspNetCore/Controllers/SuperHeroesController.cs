@@ -25,7 +25,8 @@ namespace AspNetCore.Controllers
         // GET: SuperHeroes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var superheroInDb = context.superHeroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(superheroInDb);
         }
 
         // GET: SuperHeroes/Create
@@ -49,50 +50,52 @@ namespace AspNetCore.Controllers
             }
             catch
             {
-                return View();
+                return View(superHero);
             }
         }
 
         // GET: SuperHeroes/Edit/5
-        public ActionResult Edit(SuperHero superHero)
+        public ActionResult Edit(int id)
         {
-            return View();
+            var superheroInDb = context.superHeroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(superheroInDb);
         }
 
         // POST: SuperHeroes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(SuperHero superHero)
         {
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
+                context.superHeroes.Add(superHero);
+                context.SaveChanges();
+                return View (superHero);
             }
             catch
             {
-                return View();
+                return View(superHero);
             }
         }
 
         // GET: SuperHeroes/Delete/5
-        public ActionResult Delete(SuperHero superHero)
+        public ActionResult Delete(int id)
         {
-            context.superHeroes.Remove(superHero);
-            context.SaveChanges();
-            return View(superHero);
+            var superheroInDb = context.superHeroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(superheroInDb);
         }
 
         // POST: SuperHeroes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete()
+        public ActionResult Delete(SuperHero superHero)
         {
             try
             {
                 // TODO: Add delete logic here
-                
+                context.Remove(superHero);
+                context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch

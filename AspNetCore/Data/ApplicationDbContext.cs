@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using AspNetCore.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -17,6 +18,11 @@ namespace AspNetCore.Data
 
         public ApplicationDbContext()
         {
+        }
+
+        internal void SaveChanges(IQueryable<SuperHero> superheroInDb)
+        {
+            throw new NotImplementedException();
         }
     }
 }

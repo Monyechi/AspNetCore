@@ -64,11 +64,13 @@ namespace AspNetCore.Controllers
         // POST: SuperHeroes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(SuperHero superHero)
+        public ActionResult Edit(int id, SuperHero superHero)
         {
             try
             {
                 // TODO: Add update logic here
+                var superheroInDb = context.superHeroes.Where(s => s.Id == id).FirstOrDefault();
+                context.superHeroes.Remove(superheroInDb);
                 context.superHeroes.Add(superHero);
                 context.SaveChanges();
                 return View (superHero);
